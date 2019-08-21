@@ -13,6 +13,7 @@ public class OptionDto extends Dto {
     private LocalDate expiryDate;
     private LocalDate premiumDate;
     private String payCcy;
+    private LocalDate excerciseStartDate;
 
     @Override
     public Type getType() {
@@ -70,6 +71,15 @@ public class OptionDto extends Dto {
 
     public OptionDto setPayCcy(String payCcy) {
         this.payCcy = payCcy;
+        return this;
+    }
+
+    public LocalDate getExcerciseStartDate() {
+        return excerciseStartDate;
+    }
+
+    public OptionDto setExcerciseStartDate(LocalDate excerciseStartDate) {
+        this.excerciseStartDate = excerciseStartDate;
         return this;
     }
 }
