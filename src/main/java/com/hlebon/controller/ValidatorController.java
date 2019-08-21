@@ -3,7 +3,7 @@ package com.hlebon.controller;
 import com.hlebon.controller.dto.request.Dto;
 import com.hlebon.controller.dto.request.RequestDto;
 import com.hlebon.controller.dto.response.ResponseDto;
-import com.hlebon.validation.Validator;
+import com.hlebon.validation.TypedValidator;
 import com.hlebon.validation.ValidatorManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +31,7 @@ public class ValidatorController {
         // TODO make a parallel
         for (final Dto dto: dtos.getTest()) {
             ResponseDto.Row row = new ResponseDto.Row();
-            Collection<Validator<? super Dto>> validatorsChain = validatorManager.getValidatorsChain(dto.getType());
+            Collection<TypedValidator<? super Dto>> validatorsChain = validatorManager.getValidatorsChain(dto.getType());
             if (validatorsChain != null) {
                 List<ResponseDto.Row.RowError> rowErrors = validatorsChain
                         .stream()

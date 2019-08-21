@@ -13,17 +13,26 @@ import java.util.Map;
 
 @Component
 public class ValidatorManager {
-    private Map<Type, List<Validator<? super Dto>>> validators = new HashMap<>();
+    private final Map<Type, List<TypedValidator<? super Dto>>> validators = new HashMap<>();
+    private final List<CommonValidator> commonValidators = new ArrayList<>();
 
     @Autowired
-    public ValidatorManager(List<Validator<? extends Dto>> allValidators) {
-        for (Validator validator : allValidators) {
-            validators.computeIfAbsent(validator.getType(), e -> new ArrayList<>());
-            validators.get(validator.getType()).add(validator);
+    public ValidatorManager(
+            final List<TypedValidator<? extends Dto>> allTypedValidators,
+            final List<CommonValidator> commonValidators
+    ) {
+        for (TypedValidator typedValidator : allTypedValidators) {
+            validators.computeIfAbsent(typedValidator.getType(), e -> new ArrayList<>());
+            validators.get(typedValidator.getType()).add(typedValidator);
         }
+        this.commonValidators.addAll(commonValidators);
     }
 
-    public Collection<Validator<? super Dto>> getValidatorsChain(Type type) {
+    public Collection<TypedValidator<? super Dto>> getValidatorsChain(Type type) {
         return validators.get(type);
+    }
+
+    public List<CommonValidator> getCommonValidators() {
+        return commonValidators;
     }
 }

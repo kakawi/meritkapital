@@ -2,9 +2,9 @@ package com.hlebon.validation.spot;
 
 import com.hlebon.Type;
 import com.hlebon.controller.dto.SpotDto;
-import com.hlebon.validation.Validator;
+import com.hlebon.validation.TypedValidator;
 
-public abstract class SpotBaseValidator implements Validator<SpotDto> {
+public abstract class SpotBaseValidator implements TypedValidator<SpotDto> {
 
     @Override
     public Type getType() {

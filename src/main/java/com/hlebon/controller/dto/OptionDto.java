@@ -7,40 +7,16 @@ import java.time.LocalDate;
 
 public class OptionDto extends Dto {
 
-    private String customer;
-    private String ccyPair;
     private String style;
-    private String direction;
     private String strategy;
-    private LocalDate tradeDate;
     private LocalDate deliveryDate;
     private LocalDate expiryDate;
-    private LocalDate valueDate;
     private LocalDate premiumDate;
     private String payCcy;
-    private String legalEntity;
 
     @Override
     public Type getType() {
         return Type.OPTIONS;
-    }
-
-    public String getCustomer() {
-        return customer;
-    }
-
-    public OptionDto setCustomer(String customer) {
-        this.customer = customer;
-        return this;
-    }
-
-    public String getCcyPair() {
-        return ccyPair;
-    }
-
-    public OptionDto setCcyPair(String ccyPair) {
-        this.ccyPair = ccyPair;
-        return this;
     }
 
     public String getStyle() {
@@ -52,30 +28,12 @@ public class OptionDto extends Dto {
         return this;
     }
 
-    public String getDirection() {
-        return direction;
-    }
-
-    public OptionDto setDirection(String direction) {
-        this.direction = direction;
-        return this;
-    }
-
     public String getStrategy() {
         return strategy;
     }
 
     public OptionDto setStrategy(String strategy) {
         this.strategy = strategy;
-        return this;
-    }
-
-    public LocalDate getTradeDate() {
-        return tradeDate;
-    }
-
-    public OptionDto setTradeDate(LocalDate tradeDate) {
-        this.tradeDate = tradeDate;
         return this;
     }
 
@@ -97,15 +55,6 @@ public class OptionDto extends Dto {
         return this;
     }
 
-    public LocalDate getValueDate() {
-        return valueDate;
-    }
-
-    public OptionDto setValueDate(LocalDate valueDate) {
-        this.valueDate = valueDate;
-        return this;
-    }
-
     public LocalDate getPremiumDate() {
         return premiumDate;
     }
@@ -121,15 +70,6 @@ public class OptionDto extends Dto {
 
     public OptionDto setPayCcy(String payCcy) {
         this.payCcy = payCcy;
-        return this;
-    }
-
-    public String getLegalEntity() {
-        return legalEntity;
-    }
-
-    public OptionDto setLegalEntity(String legalEntity) {
-        this.legalEntity = legalEntity;
         return this;
     }
 }
