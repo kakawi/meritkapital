@@ -26,7 +26,6 @@ public class ValidatorController {
     @PostMapping("validate")
     public ResponseDto validate(@RequestBody RequestDto dtos) {
         ResponseDto response = new ResponseDto();
-        // TODO make a parallel
         for (final Dto dto : dtos.getTest()) {
             ResponseDto.Row row = new ResponseDto.Row();
             ValidationResult validationResult = validatorService.validate(dto);

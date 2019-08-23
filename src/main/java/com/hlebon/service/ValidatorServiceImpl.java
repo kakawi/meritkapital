@@ -28,7 +28,7 @@ public class ValidatorServiceImpl implements ValidatorService {
 
         if (!commonValidators.isEmpty()) {
             commonValidators
-                    .stream()
+                    .parallelStream()
                     .map(v -> v.validate(dto))
                     .filter(Objects::nonNull)
                     .forEach(result::addError);
@@ -37,7 +37,7 @@ public class ValidatorServiceImpl implements ValidatorService {
         Collection<TypedValidator<? super Dto>> validatorsChain = validatorManager.getValidatorsChain(dto.getType());
         if (validatorsChain != null) {
             validatorsChain
-                    .stream()
+                    .parallelStream()
                     .map(v -> v.validate(dto))
                     .filter(Objects::nonNull)
                     .forEach(result::addError);
