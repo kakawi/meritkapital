@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  merit-kapital:
+    container_name: merit-kapital__mysql
+    image: mysql:5
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=meritkapital_root
+      - MYSQL_DATABASE=meritkapital
+      - MYSQL_USER=meritkapital_user
+      - MYSQL_PASSWORD=meritkapital_pass
+    networks:
+      - cmnet
+    volumes:
+      - ${PWD}/schema/:/docker-entrypoint-initdb.d/:ro
+
+networks:
+  cmnet:
+    driver: bridge
