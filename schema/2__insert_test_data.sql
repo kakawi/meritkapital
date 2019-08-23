@@ -7,3 +7,6 @@ INSERT INTO holidays (id, name, month, day_of_month) VALUES (6, 'Victory Day', '
 INSERT INTO holidays (id, name, month, day_of_month) VALUES (7, 'Independence Day', 'JULY', 3);
 INSERT INTO holidays (id, name, month, day_of_month) VALUES (8, 'October Revolution Day', 'NOVEMBER', 7);
 INSERT INTO holidays (id, name, month, day_of_month) VALUES (9, 'Christmas Day', 'DECEMBER', 25);
+
+INSERT INTO currencies (id, name, iso) VALUES (1, 'US Dollar', 'USD');
+INSERT INTO currencies (id, name, iso) VALUES (2, 'Euro', 'EUR');
